@@ -284,8 +284,8 @@ if ('IntersectionObserver' in window) {
     });
 }
 
-// Add loading states for images
-document.querySelectorAll('img').forEach(img => {
+// Add loading states for images (excluding profile image)
+document.querySelectorAll('img:not(.profile-img)').forEach(img => {
     img.addEventListener('load', function() {
         this.style.opacity = '1';
     });
