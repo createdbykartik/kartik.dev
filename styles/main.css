@@ -63,7 +63,7 @@ p {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(251, 251, 253, 0.8);
+    background: rgba(0, 122, 204, 0.9);
     backdrop-filter: saturate(180%) blur(20px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.18);
     z-index: 1000;
@@ -84,12 +84,12 @@ p {
     font-size: 21px;
     font-weight: 400;
     text-decoration: none;
-    color: #1d1d1f;
+    color: #ffffff;
     transition: color 0.3s ease;
 }
 
 .nav-logo a:hover {
-    color: #0066cc;
+    color: #e6f3ff;
 }
 
 .nav-menu {
@@ -99,15 +99,15 @@ p {
 
 .nav-link {
     text-decoration: none;
-    color: #1d1d1f;
+    color: #ffffff;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 16px;
     transition: color 0.3s ease;
     position: relative;
 }
 
 .nav-link:hover {
-    color: #0066cc;
+    color: #e6f3ff;
 }
 
 .nav-link::after {
@@ -117,7 +117,7 @@ p {
     height: 2px;
     bottom: -5px;
     left: 0;
-    background-color: #0066cc;
+    background-color: #ffffff;
     transition: width 0.3s ease;
 }
 
@@ -134,7 +134,7 @@ p {
 .bar {
     width: 25px;
     height: 3px;
-    background-color: #1d1d1f;
+    background-color: #ffffff;
     margin: 3px 0;
     transition: 0.3s;
 }
@@ -732,14 +732,17 @@ section {
 
 /* Footer */
 .footer {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #007ACC;
+    color: #ffffff;
     text-align: center;
     padding: 2rem 0;
 }
 
 .footer-content p {
     margin-bottom: 0.5rem;
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 16px;
 }
 
 /* Animations */
@@ -772,7 +775,7 @@ section {
         left: -100%;
         top: 70px;
         flex-direction: column;
-        background-color: white;
+        background-color: #007ACC;
         width: 100%;
         text-align: center;
         transition: 0.3s;
