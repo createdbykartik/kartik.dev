@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main, feat/enable-react]
+    branches: [feat/enable-react]
   workflow_dispatch:
 
 permissions:
