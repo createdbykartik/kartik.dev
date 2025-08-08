@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Interactive React.js Resume Website with Scroll Animations",
   "main": "src/index.js",
+  "homepage": "https://createdbykartik.github.io/kartik.dev",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
