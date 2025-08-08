@@ -14,7 +14,8 @@ const Overlay = styled(motion.div)`
   z-index: 0;
 
   @media (max-width: 900px) {
-    width: 0; /* collapse on small screens */
+    /* Keep balloons visible on mobile with a slimmer gutter */
+    width: ${p => Math.min(p.$width || 240, 140)}px;
   }
 `;
 
