@@ -11,10 +11,12 @@ ehthumbs.db
 Thumbs.db
 
 # Editor files
-.vscode/
+.vscode/tasks.json
 .idea/
 *.swp
 *.swo
 
 # Logs
 *.log
+
+node_modules/
