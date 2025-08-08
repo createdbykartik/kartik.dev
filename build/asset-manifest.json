@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/kartik.dev/static/css/main.2fe45a49.css",
+    "main.js": "/kartik.dev/static/js/main.525db7d3.js",
+    "index.html": "/kartik.dev/index.html",
+    "main.2fe45a49.css.map": "/kartik.dev/static/css/main.2fe45a49.css.map",
+    "main.525db7d3.js.map": "/kartik.dev/static/js/main.525db7d3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2fe45a49.css",
+    "static/js/main.525db7d3.js"
+  ]
+}

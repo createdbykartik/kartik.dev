@@ -13,6 +13,7 @@ const BackgroundContainer = styled(motion.div)`
   z-index: 2; /* above sections (which are z-index:1) */
   pointer-events: none;
   overflow: hidden;
+  background: transparent; /* ensure this layer never covers content */
 `;
 
 const ParticleContainer = styled.div`
@@ -173,16 +174,7 @@ const InteractiveBackground = ({ currentSection }) => {
   };
 
   return (
-    <BackgroundContainer
-      animate={{
-        background: [
-          'rgba(0, 122, 204, 0.02)',
-          'rgba(0, 122, 204, 0.05)',
-          'rgba(0, 122, 204, 0.02)'
-        ]
-      }}
-      transition={{ duration: 4, repeat: Infinity, repeatType: "reverse" }}
-    >
+    <BackgroundContainer>
       {sectionKey !== 'projects' && sectionKey !== 'skills' && renderBackgroundPattern()}
       <ParticleContainer>{generateParticles()}</ParticleContainer>
       {/* Balloons overlay always visible on all sections */}

@@ -8,15 +8,11 @@ const Overlay = styled(motion.div)`
   top: 0;
   bottom: 0;
   ${p => (p.$side === 'left' ? 'left: 0;' : 'right: 0;')}
-  width: ${p => p.$width}px;
+  /* Keep a usable gutter on phones, cap at provided width on large screens */
+  width: ${p => `clamp(160px, 28vw, ${p.$width}px)`};
   pointer-events: none;
   overflow: hidden;
-  z-index: 0;
-
-  @media (max-width: 900px) {
-    /* Keep balloons visible on mobile with a slimmer gutter */
-    width: ${p => Math.min(p.$width || 240, 140)}px;
-  }
+  z-index: 1; /* above other background children */
 `;
 
 // Replace roads/traffic lights/cars with sky elements
@@ -44,6 +40,11 @@ const BalloonSVG = styled(motion.svg)`
   overflow: visible;
   will-change: transform;
   filter: drop-shadow(0 8px 18px ${p => p.theme.primary}33);
+
+  @media (max-width: 900px) {
+    width: 86px;
+    height: 134px;
+  }
 `;
 
 const HotAirBalloon = ({ color, basketColor, gradientId, ...motionProps }) => (
@@ -105,14 +106,19 @@ const VehicleOverlay = ({ active = true, side = 'right', width = 240 }) => {
   }, []);
 
   // floating balloons
+  const BALLOON_COUNT_BASE = 6;
+  const DENSITY = 0.33; // slightly higher than 1/5th
+  const BALLOON_COUNT = Math.max(2, Math.round(BALLOON_COUNT_BASE * DENSITY));
   const balloons = useMemo(() => (
-    Array.from({ length: 6 }, (_, i) => ({
-      key: `balloon-${i}`,
-      left: 10 + (i * 15) % 80, // percentage within gutter
-      duration: 14 + (i % 4) * 2,
-      phase: Math.random(), // negative delay to desync
-    }))
-  ), []);
+    Array.from({ length: BALLOON_COUNT }, (_, i) => {
+      const phase = i / BALLOON_COUNT; // evenly stagger so at least one is on-screen
+      const left = BALLOON_COUNT > 1
+        ? 10 + i * (80 / (BALLOON_COUNT - 1))
+        : 50; // center if only one
+      const duration = 12 + (i % 3) * 2; // slightly faster to reduce blank gaps
+      return { key: `balloon-${i}`, left, duration, phase };
+    })
+  ), [BALLOON_COUNT]);
 
   // slow drifting clouds
   const clouds = useMemo(() => (
@@ -125,7 +131,7 @@ const VehicleOverlay = ({ active = true, side = 'right', width = 240 }) => {
       $side={side}
       $width={width}
       initial={{ opacity: 0 }}
-      animate={{ opacity: active ? 1 : 0.4 }}
+      animate={{ opacity: active ? 0.9 : 0.36 }}
       transition={{ duration: 0.4 }}
     >
       {/* Clouds removed to avoid overlaying text */}
