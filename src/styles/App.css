@@ -1,0 +1,73 @@
+.App {
+  text-align: left;
+  min-height: 100vh;
+}
+
+/* Ensure sections take full viewport height */
+section {
+  position: relative;
+  z-index: 1;
+}
+
+/* Animation utilities */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .App {
+    padding-top: 0;
+  }
+  
+  section {
+    padding: 2rem 0;
+  }
+}
+
+/* Performance optimizations */
+.App * {
+  will-change: auto;
+}
+
+.App section {
+  contain: layout style paint;
+}
