@@ -115,7 +115,9 @@ const Header = ({ currentSection }) => {
   const scrollToSection = (href) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const HEADER_OFFSET = 80; // account for fixed header on mobile
+      const y = element.getBoundingClientRect().top + window.pageYOffset - HEADER_OFFSET;
+      window.scrollTo({ top: y, behavior: 'smooth' });
       setMobileMenuOpen(false);
     }
   };

@@ -41,6 +41,7 @@ const HeroContainer = styled.div`
     grid-template-columns: 1fr;
     text-align: center;
     gap: 2rem;
+    padding-top: calc(3.5rem + env(safe-area-inset-top, 0px));
   }
 `;
 

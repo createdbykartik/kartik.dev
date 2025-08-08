@@ -13,6 +13,13 @@ const Section = styled.section`
   padding: 4rem 0;
   position: relative;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    align-items: flex-start; /* allow content to start from top */
+    padding: 5rem 0 3rem; /* a bit more top padding so header/name has room */
+    overflow: visible; /* avoid clipping any shadows */
+    min-height: auto; /* let content size the section */
+  }
 `;
 
 const CONTENT_GUTTER = 280; // px, must match overlay width
@@ -38,6 +45,11 @@ const SectionTitle = styled(motion.h2)`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+
+  @media (max-width: 768px) {
+    font-size: 2.25rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 const Timeline = styled.div`
@@ -59,6 +71,11 @@ const TimelineItem = styled(motion.div)`
     box-shadow: 0 10px 30px ${props => props.theme.primary}20;
     background: ${props => `${props.theme.primary}15`};
   }
+
+  @media (max-width: 768px) {
+    margin-bottom: 1.5rem;
+    padding: 1.25rem;
+  }
 `;
 
 const TimelineDate = styled.div`
@@ -74,6 +91,10 @@ const TimelineTitle = styled.h3`
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
   color: ${props => props.theme.text};
+
+  @media (max-width: 768px) {
+    font-size: 1.25rem;
+  }
 `;
 
 const TimelineCompany = styled.h4`
