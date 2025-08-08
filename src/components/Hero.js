@@ -304,7 +304,7 @@ const Hero = ({ scrollY }) => {
           }}
         >
           <ProfileImage
-            src="/assets/kartik-profile.jpg"
+            src={`${process.env.PUBLIC_URL}/assets/kartik-profile.jpg`}
             alt="Kartik Chadha Profile"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
