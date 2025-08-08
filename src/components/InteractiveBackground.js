@@ -175,10 +175,10 @@ const InteractiveBackground = ({ currentSection }) => {
 
   return (
     <BackgroundContainer>
-      {sectionKey !== 'projects' && sectionKey !== 'skills' && renderBackgroundPattern()}
+      {sectionKey !== 'projects' && sectionKey !== 'skills' && sectionKey !== 'about' && sectionKey !== 'experience' && renderBackgroundPattern()}
       <ParticleContainer>{generateParticles()}</ParticleContainer>
-      {/* Balloons overlay always visible on all sections */}
-      <VehicleOverlay active side="right" width={240} />
+      {/* Balloons overlay hidden on Experience */}
+      <VehicleOverlay active={sectionKey !== 'experience'} side="right" width={240} />
     </BackgroundContainer>
   );
 };
