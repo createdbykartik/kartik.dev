@@ -167,11 +167,6 @@ const Contact = () => {
             </ContactItem>
             
             <ContactItem>
-              <i className="fas fa-phone"></i>
-              <span>+61 405 317 792</span>
-            </ContactItem>
-            
-            <ContactItem>
               <i className="fas fa-map-marker-alt"></i>
               <span>Melbourne, Australia</span>
             </ContactItem>
